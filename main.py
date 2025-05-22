@@ -8,4 +8,4 @@ app = FastMCP(name="FastMCP Server")
 app.mount("/sql_tool", sql_tool_mcp)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(transport='streamable-http')
