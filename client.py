@@ -1,5 +1,5 @@
 from mcp.client.stdio import StdioServerParameters
-from smolagents import CodeAgent, LiteLLMModel, Tool, GradioUI
+from smolagents import CodeAgent, LiteLLMModel, GradioUI
 from smolagents.mcp_client import MCPClient
 
 import os

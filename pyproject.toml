@@ -8,6 +8,7 @@ dependencies = [
     "fastmcp>=2.4.0",
     "mcp[all,cli]>=1.9.0",
     "sqlalchemy>=2.0.41",
+    "smolagents[gradio,litellm,mcp,toolkit]>=1.15.0",
 ]
 
 [[project.authors]]
