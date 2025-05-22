@@ -1,0 +1,15 @@
+[project]
+name = "mcp-server"
+version = "0.1.0"
+description = "A server for the MCP protocol"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=2.4.0",
+    "mcp[all,cli]>=1.9.0",
+    "sqlalchemy>=2.0.41",
+]
+
+[[project.authors]]
+name = "Lim Phanith"
+email = "limphanith.dev@gmail.com"
