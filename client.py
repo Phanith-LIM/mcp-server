@@ -10,14 +10,16 @@ if __name__ == "__main__":
     #     args= [
     #         "-y",
     #         "mcp-remote",
-    #         "http://127.0.0.1:9000/sse",
+    #         "http://127.0.0.1:9000/mcp",
     #         "--allow-http",
     #     ],
     # )
 
     mcp_client = MCPClient(
-        {"url": "http://127.0.0.1:9000/sse"}
-    )
+        {
+            "url":  "http://127.0.0.1:9000/mcp"
+        }
+   )
 
     tools = mcp_client.get_tools()
     for tool in tools:

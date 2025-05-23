@@ -20,7 +20,7 @@ uv sync
 ## Usage
 Run the server:
 ```bash
-fastmcp run main.py --transport sse --port 9000
+fastmcp run main.py --transport streamable-http --host 0.0.0.0 --port 8080
 ```
 Run the client:
 ```bash

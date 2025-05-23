@@ -21,15 +21,14 @@ ENV PATH="/root/.local/bin/:$PATH"
 # This includes pyproject.toml and poetry.lock (if you have one)
 COPY pyproject.toml /app/
 
-# Install all dependencies using uv sync
-# This creates the virtual environment and installs project dependencies
-RUN uv sync
-
 # Expose the application port
-EXPOSE 9000
+EXPOSE 8080
 
 # Copy the rest of the application code
 COPY . /app
 
+# Install all dependencies using uv sync
+# This creates the virtual environment and installs project dependencies
+RUN uv sync
 
-CMD ["uv", "run", "fastmcp", "run", "main.py", "--transport", "sse", "--port", "9000", "--host", "0.0.0.0"]
+CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]

@@ -10,7 +10,6 @@ DB_CONFIGS = {
 EXECUTE_QUERY_MAX_CHARS = 4000
 TRANSPORT = "streamable-http"
 
-
 mcp = FastMCP(
     name="SQL Tool",
     instructions="Use the tools to interact with the databases. Each tool is specific to a configured database."
@@ -22,7 +21,6 @@ def get_engine(db_url, readonly=True):
         isolation_level='AUTOCOMMIT',
         execution_options={'readonly': readonly}
     )
-
 
 def get_db_info(db_url):
     engine = get_engine(db_url, readonly=True)

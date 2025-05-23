@@ -1,11 +1,26 @@
-from fastmcp import FastMCP
-from tools import sql_tool_mcp
+from fastapi.responses import HTMLResponse
+from fastapi import FastAPI
+from server import mcp_app
+import uvicorn
 
 
-app = FastMCP(name="FastMCP Server")
+## FastAPI app
+app = FastAPI(lifespan=mcp_app.lifespan, docs_url=None, redoc_url=None)
+app.mount("/mcp-protocol", mcp_app)
 
-# Register the SQL tool
-app.mount("/sql_tool", sql_tool_mcp)
+## Routes
+@app.get("/", response_class=HTMLResponse)
+async def root():
+    return """
+    <html>
+        <head>
+            <title>FastMCP Server</title>
+        </head>
+        <body>
+            <p>MCP Server is now running!</p>
+        </body>
+    </html>
+    """
 
 if __name__ == "__main__":
-    app.run(transport='streamable-http')
+    uvicorn.run(app, host="0.0.0.0", port=8080)
